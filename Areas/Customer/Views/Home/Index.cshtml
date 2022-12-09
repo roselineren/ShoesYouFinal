@@ -1,0 +1,85 @@
+﻿@using OnlineShop.Models;
+@model List<Produit2>
+
+@{ ViewData["Title"] = "Home Page"; }
+<link rel="stylesheet" href="~/css/site.css" />
+
+<br />
+<br />
+<header class="header">
+    <h1 class="header-h1">Avec ShoesYou, une alternative écologique pour tous les goûts !</h1>
+    <button class="header-button">Naviguer <i class="fas fa-paper-plane"></i></button>
+</header>
+<br />
+<br />
+<br />
+
+<h1 class="header-h1">Nouveautés</h1>
+<br />
+<br />
+<!-- Section principale -->
+<section class="main">
+
+    <!-- Toutes les cartes -->
+
+
+
+    <div class="cards">
+
+        @foreach (var product in Model)
+        {
+
+<div class="card2">
+    <img src="~/@product.Image" alt="Card Image" class="card-img2" />
+    <div class="card-header2">
+        <h4>
+            <label class="title">@product.Nom</label>
+        </h4>
+    </div>
+    <div class="card-header2">
+        <h4>
+            <label class="price"><b>Price : @product.Price €</b></label>
+        </h4>
+        <a asp-action="Detail" asp-controller="Home" asp-route-id="@product.Id" class="btn btn-success pull-right ">Details</a>
+
+    </div>
+    <br />
+    <br />
+</div>}
+
+    </div>
+
+</section>
+
+<br />
+<br />
+<br />
+
+
+
+
+@*<div class="row">
+        @foreach (var product in Model)
+        {
+    <div class="col-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">
+                    <label style="font-size: 23px;color: steelblue">@product.Nom</label>
+                </h4>
+            </div>
+            <img src="~/@product.Image" alt="Card Image" class="card-img-top" style="height:" 100%" ; width="100%" ;" />
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <label style="font-size: 20px;color: #a51313"><b>Price : @product.Price</b></label>
+                    </div>
+                    <a asp-action="Detail" asp-controller="Home" asp-route-id="@product.Id" class="btn btn-success pull-right ">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>}
+    </div>*@
+
+
+

@@ -1,0 +1,61 @@
+﻿@using OnlineShop.Models;
+@model IEnumerable<Stock>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ ViewData["Title"] = "Index"; }
+
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Liste de produits</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Add Stock</a>
+    </div>
+
+</div>
+
+<div>
+    <table class="table table-striped border" id="myTable">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(c => c.ProduitId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Couleur)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Quantite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Pointure)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    
+    <td>@item.Produit.Nom</td>
+    <td>
+        @item.Couleur
+    </td>
+    <td>@item.Quantite</td>
+    <td>@item.Pointure</td>
+    <td>
+        <partial name="_ButtonPartial" model="@item.Id" />
+    </td>
+</tr>
+}
+        </tbody>
+
+
+    </table>
+</div>
